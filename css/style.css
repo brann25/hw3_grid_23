@@ -108,47 +108,129 @@ footer{
 /* Step 1: Write selector/rule property to add an underline when
 links in the navigation are in the hover or focus state.*/
 
-
+ul li:hover {
+  text-decoration: underline;
+}
 
 /* Step 2a: Write selector/rule property to position the default position for the skip class element*/
 
+.skip a {
+  position: relative;
+  top: -40px;
+  margin-bottom: -40px;
+}
 
 /* Step 2b: Write selector/rule property to position the skip class element when it is in focus*/
 
+.skip a:focus{
+  top: 20px;
+}
 
 /* Step 3: Write selector/rule property to style all elements when in focus*/
 
-
+* :focus{
+  border: solid 2px rgb(32, 32, 32);
+}
 
 /* Step 4: Write selector/rule property to style the container */
-
+/* as of the brief: now will be for mobile version! */
+.container {
+  overflow: hidden;
+  width: 100%;
+  display: grid;
+  /* grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-rows: 25% 25% 25%; */
+  grid-template-columns: 1fr 5fr 1fr;
+  row-gap: 15px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+}
 
 /* Step 5: Write selector/rule property to add the background image to the 
 first div in the grid  and place it in the grid. */
 
+.container > :first-child{
+  grid-column: span 3;
+  background-image: url("../images/header.jpg");
 
+  /* Parallax effect: Part of SI 539 courseworks, Created by ColleenVanLent, Ⓒ School of Information, University of Michigan 2023*/  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 400px;
+}
 
 /* Steps 6 and 7: Write the selector/rule properties to add place the next elements in the next
  four rows in the grid. */
 
       /*This will be a lot of rules.... but be strategic and combine seletors*/
-
+.about, .method, .clients, .contact {
+  grid-column: 2;
+  z-index: 2;
+}
+.about-image, .method-image, .clients-image, .contact-image{
+  overflow: hidden;
+  grid-column: 1/span 3;
+  max-height: 600px;
+  z-index: 1;
+}
+.about, .about-image{
+  grid-row: 2;
+}
+.method, .method-image{
+  grid-row: 3;
+}
+.clients, .clients-image{
+  grid-row: 4;
+}
+.contact, .contact-image{
+  grid-row: 5;
+}
 
  /* Step 8: Write the selector/rule property to style the .text-block class. */
-
+ .text-block {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Add your media query here */
-
+@media screen and (min-width: 900px){
 
   /* Step 9: Write the selector/rule property to style the nav element */
-
+  nav {
+    text-align: right;
+    padding: 30px 0 30px 0;
+  }
  
   /* Step 10: Write the selector/rule property to update the .container class */
-
-
+  .container {
+    overflow: hidden;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50px auto 500px auto 50px;
+    row-gap: 15px;
+  }
   /* Steps 11 and 12: Update the grid-column property of the grid's children (where-needed)*/
+  .container > :first-child{
+    grid-column: span 5;
+  }
 
-
+  .about, .clients, .method-image, .contact-image{
+    grid-column: 3/span 2;
+    max-width: 100%;
+  }
+  .about-image, .clients-image, .method, .contact{
+    grid-column: 2/span 2;
+  }
 
  /* Step 13:Write the selector/rule property to update the .text-block class */
+  .text-block{
+    max-height: 250px;
+  }
+}
+
 
