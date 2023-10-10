@@ -115,7 +115,7 @@ ul li:hover {
 /* Step 2a: Write selector/rule property to position the default position for the skip class element*/
 
 .skip a {
-  position: relative;
+  position: absolute;
   top: -40px;
   margin-bottom: -40px;
 }
@@ -170,6 +170,7 @@ first div in the grid  and place it in the grid. */
 .about, .method, .clients, .contact {
   grid-column: 2;
   z-index: 2;
+  overflow: hidden;
 }
 .about-image, .method-image, .clients-image, .contact-image{
   overflow: hidden;
